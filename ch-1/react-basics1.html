@@ -17,8 +17,18 @@
     <script type="text/babel">
         const button = <button>Click Me</button>;
         const container = document.querySelector('.js-container');
+        const p = <p>This is a paragraph {30 * 10}</p>;
 
-        ReactDOM.createRoot(container).render(button);
+        const div = (
+            <div>
+                <h1>Welcome to SuperSimpleDev React Course</h1>
+                {button}
+                {p}
+
+            </div>
+        );
+
+        ReactDOM.createRoot(container).render(div);
 
     </script>
 
