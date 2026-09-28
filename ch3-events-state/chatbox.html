@@ -33,6 +33,10 @@
             );
         }
 
+        function sendMessage() {
+            console.log("send Message..")
+        }
+
         function ChatMessages() {
             const chatMessages = [{ "message": "hi", "sender": "user", "id": "1" },
             { "message": "yes", "sender": "robot", "id": "2" },
@@ -44,6 +48,7 @@
 
                 <>
 
+                    <button onClick={sendMessage}>Send message</button>
                     {
                         chatMessages.map((chatMessage) => {
 
