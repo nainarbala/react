@@ -33,16 +33,42 @@
             );
         }
 
-        function sendMessage() {
-            console.log("send Message..")
-        }
 
         function ChatMessages() {
-            const chatMessages = [{ "message": "hi", "sender": "user", "id": "1" },
+
+            const array = React.useState([{ "message": "hi", "sender": "user", "id": "1" },
             { "message": "yes", "sender": "robot", "id": "2" },
             { "message": "tell me time", "sender": "user", "id": "3" },
             { "message": "1 PM", "sender": "robot", "id": "4" },
-            ];
+            ]);
+
+            const chatMessages = array[0];
+
+            const setChatMessages = array[1];
+
+            console.log("array", array);
+            console.log("chatMessages", chatMessages);
+            console.log("setChatMessages", setChatMessages);
+
+
+
+            // const chatMessages = [{ "message": "hi", "sender": "user", "id": "1" },
+            // { "message": "yes", "sender": "robot", "id": "2" },
+            // { "message": "tell me time", "sender": "user", "id": "3" },
+            // { "message": "1 PM", "sender": "robot", "id": "4" },
+            // ];
+
+
+            function sendMessage() {
+                // console.log("send Message...")
+                // chatMessages.push({ "message": "hi", "sender": "user", "id": crypto.randomUUID() });
+                // console.log(chatMessages);
+
+                setChatMessages([...chatMessages,
+                { "message": "hiiii", "sender": "user", "id": crypto.randomUUID() }
+
+                ]);
+            }
 
             return (
 
