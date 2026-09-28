@@ -15,10 +15,32 @@
     <script type="text/babel">
 
         function ChatInput() {
+
+            const [inputText, setInputText] = React.useState('');
+
+            function saveInputText(event) {
+
+
+
+                setInputText(event.target.value);
+
+
+
+                console.log("inputText", inputText);
+                console.log("setInputText", setInputText);
+
+
+            }
+
+
+            function sendMessage() {
+                console.log(inputText);
+            }
+
             return (
                 <>
-                    <input type="text" placeholder="Type here"></input>
-                    <button>send</button>
+                    <input type="text" placeholder="Type here" onChange={saveInputText}></input>
+                    <button onClick={sendMessage}>send</button>
                 </>
             );
         }
@@ -42,9 +64,10 @@
             { "message": "1 PM", "sender": "robot", "id": "4" },
             ]);
 
-            const chatMessages = array[0];
+            const [chatMessages, setChatMessages] = array;
+            // const chatMessages = array[0];
 
-            const setChatMessages = array[1];
+            // const setChatMessages = array[1];
 
             console.log("array", array);
             console.log("chatMessages", chatMessages);
