@@ -1,7 +1,7 @@
 function Navbar() {
     return (
         <nav>
-            <h2>Hello</h2>
+            <h2>Code IO</h2>
             <button>Login</button>
         </nav>
     );
