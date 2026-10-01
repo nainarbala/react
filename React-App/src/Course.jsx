@@ -1,8 +1,20 @@
+import { useState } from "react";
+
 function Course({ title, price = "100", theme }) {
 
-    function discount(discount, event) {
-        console.log("discount is ", discount, event);
+    const [purchased, setPurchased] = useState(true)
+
+    function discount(discount) {
+        console.log(purchased);
+        console.log("discount is ", discount);
+        setPurchased(false);
+        console.log(purchased);
+
     }
+
+
+
+
 
     return (
         <div className="card">
@@ -12,6 +24,7 @@ function Course({ title, price = "100", theme }) {
             </div>
             <h3>{title}</h3>
             <p>${price}</p>
+            <p>Hi {purchased ? 'already purchased' : 'please purchase'}</p>
             <button onClick={(event) => discount(20, event)}>Discount</button>
         </div>
     );
