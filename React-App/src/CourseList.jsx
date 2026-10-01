@@ -23,7 +23,9 @@ function CourseList() {
     }
     ];
 
-    const courseList = courses.map((course) =>
+    const courses1 = courses.sort((x, y) => x.title - y.title);
+
+    const courseList = courses1.map((course) =>
 
         <Course key={course.id} title={course.title} price={course.price}
             theme={course.theme} />
