@@ -1,4 +1,4 @@
-isHalwaAvailable = true;
+isHalwaAvailable = false;
 function waitForHalwa() {
 
     return new Promise((resolve, reject) => {
@@ -10,7 +10,7 @@ function waitForHalwa() {
             } else {
                 reject("Halwa is not Present")
             }
-        }, 1000);
+        }, 10000);
 
     });
 }
@@ -28,8 +28,13 @@ function buyHalwa() {
 
 async function buyHalwaAsc() {
     console.log("called buyHalwa asc");
-    let result = await waitForHalwa();
-    console.log("asc value", result);
+    try {
+        let result = await waitForHalwa();
+        console.log("asc value", result);
+    } catch (error) {
+        console.log("asc Failed value", error);
+    }
+
 }
 buyHalwa();
 console.log("Next line");
