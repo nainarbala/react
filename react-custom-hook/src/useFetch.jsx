@@ -1,19 +1,12 @@
 import { useEffect, useState } from "react";
-import Course from "./Course";
 
-function CourseList() {
+const useFetch = () => {
 
-    const [courses, setCourses] = useState(null);
+    const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
 
-    function handleDelete(id) {
 
-        const newCourses = courses.filter((course) => course.id != id);
-        setCourses(newCourses);
-
-    }
-    // const courses1 = courses.sort((x, y) => x.title - y.title);
 
     useEffect(() => {
         console.log("Courses use Effect");
@@ -38,7 +31,7 @@ function CourseList() {
                 )
                 .then(data => {
                     console.log("course data", data);
-                    setCourses(data);
+                    setData(data);
                 }).catch((error) => {
                     console.log(error);
                     setError(error.message);
@@ -48,27 +41,6 @@ function CourseList() {
 
     }, []);
 
-    if (!courses) {
-        return (<>
-            {!error && <p>Loading...</p>}
-
-            {error && <p>{error}</p>}
-        </>);
-    }
-
-    const courseList = courses.map((course) =>
-
-        <Course key={course.id} title={course.title} price={course.price}
-            theme={course.theme} id={course.id} onDelete={handleDelete} />
-
-
-    );
-
-    return (
-        <>
-            {courseList}
-        </>
-    );
+    return [data, error, setData];
 }
-
-export default CourseList
+export default useFetch
