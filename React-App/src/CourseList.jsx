@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import Course from "./Course";
 
 function CourseList() {
 
-    const courses = [{
+    const [courses, setCourses] = useState([{
 
         "id": 1,
         "title": "HTML",
@@ -21,14 +22,25 @@ function CourseList() {
         "price": "10",
         "theme": "css-banner"
     }
-    ];
+    ]);
 
+    function handleDelete(id) {
+
+        const newCourses = courses.filter((course) => course.id != id);
+        setCourses(newCourses);
+
+    }
     const courses1 = courses.sort((x, y) => x.title - y.title);
+
+    useEffect(() => {
+        console.log("Courses use Effect");
+    }, []);
+
 
     const courseList = courses1.map((course) =>
 
         <Course key={course.id} title={course.title} price={course.price}
-            theme={course.theme} />
+            theme={course.theme} id={course.id} onDelete={handleDelete} />
 
 
     );
