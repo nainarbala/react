@@ -6,18 +6,15 @@ function Course({ id, title, price = "100", theme, onDelete }) {
     const [discount, setDiscount] = useState(price);
 
     useEffect(() => {
-        console.log("Course use Effect");
+        console.log("use Effect before set", purchased);
     }, [purchased]);
 
 
     function pruchasing(discount) {
-        console.log(purchased);
-        console.log("discount is ", discount);
-        setPurchased(true);
-        console.log(purchased);
-        console.log(purchased);
+        console.log("use State before set", purchased);
 
-        console.log(purchased);
+        setPurchased(true);
+        console.log("use State after set", purchased);
 
 
     }
